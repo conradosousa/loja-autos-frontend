@@ -20,6 +20,7 @@ header {
     grid-template-columns: 1fr 600px;
     gap: 10px;
     z-index: 2;
+    cursor: pointer;
 }
 
 header img {
@@ -98,6 +99,7 @@ section {
 
 .informacao-do-carro {
     font-weight: bold;
+    
 }
 
 h2 {
@@ -110,6 +112,7 @@ h2 {
     font-size: 12px;
     text-align: right;
     max-width: 400px;
+    
 }
 
 button {
