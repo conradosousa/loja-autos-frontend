@@ -1,81 +1,155 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Carrossel Moderno</title>
     <link rel="stylesheet" href="styles.css" />
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-        <img src="imagens/logo.png" alt="Logo" />
-        <nav>
-            <ul>
-                <li>Início</li>
-                <li>Sobre</li>
-                <li>Contato</li>
-            </ul>
-        </nav>
+      <img src="imagens/logo.png" alt="Logo" />
+      <nav class="navegador">
+        <ul>
+          <li>Início</li>
+          <li>Sobre</li>
+          <li>Contato</li>
+        </ul>
+      </nav>
     </header>
 
     <section>
-        <div class="list">
-            <div class="item ativo">
-                <div class="car-img">
-                    <img src="imagens/1.png" alt="Carro 1" />
-                </div>
-                <div class="content">
-                    <h2>Carro 1</h2>
-                    <p class="descricao">Descrição do carro 1.</p>
-                    <button>Saiba Mais</button>
-                </div>
-            </div>
-
-            <div class="item">
-                <div class="car-img">
-                    <img src="imagens/2.png" alt="Carro 2" />
-                </div>
-                <div class="content">
-                    <h2>Carro 2</h2>
-                    <p class="descricao">Descrição do carro 2.</p>
-                    <button>Saiba Mais</button>
-                </div>
-            </div>
-
-            <div class="item">
-                <div class="car-img">
-                    <img src="imagens/3.png" alt="Carro 3" />
-                </div>
-                <div class="content">
-                    <h2>Carro 3</h2>
-                    <p class="descricao">Descrição do carro 3.</p>
-                    <button>Saiba Mais</button>
-                </div>
-            </div>
+      <div class="list">
+        <div class="item ativo">
+          <div class="car-img">
+            <img src="imagens/1.png" alt="Carro 1" />
+          </div>
+          <div class="content">
+            <h2>Carro 1</h2>
+            <p class="descricao">Descrição do carro 1.</p>
+            <button>Saiba Mais</button>
+          </div>
         </div>
 
-        <div class="setas">
-            <button aria-label="Slide anterior">
-                <img src="imagens/arrow.png" alt="seta esquerda" style="transform: rotate(180deg);" />
-            </button>
-            <button aria-label="Próximo slide">
-                <img src="imagens/arrow.png" alt="seta direita" />
-            </button>
+        <div class="item">
+          <div class="car-img">
+            <img src="imagens/2.png" alt="Carro 2" />
+          </div>
+          <div class="content">
+            <h2>Carro 2</h2>
+            <p class="descricao">Descrição do carro 2.</p>
+            <button>Saiba Mais</button>
+          </div>
         </div>
 
-        <div class="indicadores">
-            <div class="numero">01</div>
-            <ul>
-                <li tabindex="0" role="button" aria-label="Slide 1" class="ativo" aria-selected="true"></li>
-                <li tabindex="0" role="button" aria-label="Slide 2" aria-selected="false"></li>
-                <li tabindex="0" role="button" aria-label="Slide 3" aria-selected="false"></li>
-            </ul>
+        <div class="item">
+          <div class="car-img">
+            <img src="imagens/3.png" alt="Carro 3" />
+          </div>
+          <div class="content">
+            <h2>Carro 3</h2>
+            <p class="descricao">Descrição do carro 3.</p>
+            <button>Saiba Mais</button>
+          </div>
         </div>
+      </div>
+
+      <div class="setas">
+        <button aria-label="Slide anterior">
+          <img
+            src="imagens/arrow.png"
+            alt="seta esquerda"
+            style="transform: rotate(180deg)"
+          />
+        </button>
+        <button aria-label="Próximo slide">
+          <img src="imagens/arrow.png" alt="seta direita" />
+        </button>
+      </div>
+
+      <div class="indicadores">
+        <div class="numero">01</div>
+        <ul>
+          <li
+            tabindex="0"
+            role="button"
+            aria-label="Slide 1"
+            class="ativo"
+            aria-selected="true"
+          ></li>
+          <li
+            tabindex="0"
+            role="button"
+            aria-label="Slide 2"
+            aria-selected="false"
+          ></li>
+          <li
+            tabindex="0"
+            role="button"
+            aria-label="Slide 3"
+            aria-selected="false"
+          ></li>
+        </ul>
+      </div>
     </section>
 
-    <script src="script.js"></script>
-</body>
+    <!-- Popup Modal -->
+    <div id="carModal" class="modal-overlay">
+      <div class="modal-content">
+        <button class="modal-close">&times;</button>
+        <div class="modal-header">
+          <h3 id="modalCarTitle">Carro 1</h3>
+          <div class="modal-car-image">
+            <img id="modalCarImg" src="imagens/1.png" alt="Carro" />
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="modal-specs">
+            <h4>Especificações Técnicas</h4>
+            <div class="specs-grid">
+              <div class="spec-item">
+                <span class="spec-label">Motor:</span>
+                <span class="spec-value" id="motorInfo"
+                  >V8 4.0L Twin-Turbo</span
+                >
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Potência:</span>
+                <span class="spec-value" id="potenciaInfo">650 HP</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Aceleração:</span>
+                <span class="spec-value" id="aceleracaoInfo"
+                  >0-100 km/h em 3.2s</span
+                >
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Velocidade Máxima:</span>
+                <span class="spec-value" id="velocidadeInfo">320 km/h</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Preço:</span>
+                <span class="spec-value" id="precoInfo">R$ 2.500.000</span>
+              </div>
+            </div>
+          </div>
+          <div class="modal-description">
+            <h4>Sobre o Veículo</h4>
+            <p id="modalDescription">
+              Um supercarro extraordinário que combina performance excepcional
+              com luxo refinado. Desenvolvido com as mais avançadas tecnologias
+              automotivas.
+            </p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn-interesse">Tenho Interesse</button>
+          <button class="btn-test-drive">Agendar Test Drive</button>
+        </div>
+      </div>
+    </div>
 
+    <script src="script.js"></script>
+  </body>
 </html>
